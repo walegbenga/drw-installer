@@ -1,0 +1,56 @@
+#!/usr/bin/env php
+
+<?php
+define( 'SCRIPT_ROOT', __FILE__ );
+require __DIR__ . '/vendor/autoload.php';
+
+use Symfony\Component\Console\Application;
+use \Console\Command\{
+	Controller\CreateController,
+	Controller\DestroyController,
+	ControllerAPI\CreateControllerAPI,
+	ControllerAPI\DestroyControllerAPI,
+	Database\CreateAdmin,
+	Database\CreateDb,
+	Database\CreateTable,
+	Database\DestroyAdmin,
+	Database\DestroyDb,
+	Database\DestroyModel,
+	Database\DestroyTable,
+	Database\DestroyUser,
+	Route\CreateRoute,
+	Scaffold\CreateScaffold,
+	Scaffold\DestroyScaffold,
+	Cache\InstallMemCache,
+	Cache\InstallVarnish,
+	Cache\InstallRedis,
+	Thread\InstallGearman,
+	Debugger\InstallXdebug,
+	CI\InstallJenkins
+
+};
+#use Generic\Console\Controller\GenerateController;
+
+$app = new Application('DRW framework', '2.0.0');
+$app->add(new CreateController());
+$app->add(new CreateControllerAPI());
+$app->add(new DestroyController());
+$app->add(new DestroyControllerAPI());
+$app->add(new CreateAdmin());
+$app->add(new CreateDb());
+$app->add(new CreateTable());
+$app->add(new DestroyAdmin());
+$app->add(new DestroyDb());
+$app->add(new DestroyModel());
+$app->add(new DestroyTable());
+$app->add(new DestroyUser());
+$app->add(new CreateRoute());
+$app->add(new CreateScaffold());
+$app->add(new DestroyScaffold());
+$app->add(new InstallMemCache());
+$app->add(new InstallVarnish());
+$app->add(new InstallRedis());
+$app->add(new InstallGearman());
+$app->add(new InstallXdebug());
+$app->add(new InstallJenkins());
+$app->run();
