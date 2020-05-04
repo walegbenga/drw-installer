@@ -35,7 +35,8 @@
   "require-dev": {
     "phing/phing": "2.*",
     "brandonwamboldt/utilphp": "1.0.*",
-    "psy/psysh": "@stable"
+    "psy/psysh": "@stable",
+    "phpunit/phpunit": "^8.0"
   },
   "extra": {
     "drw-framework": {
