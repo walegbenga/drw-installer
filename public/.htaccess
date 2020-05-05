@@ -1,0 +1,15 @@
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !d
+RewriteRule ^.*$ index.php [NC,L,QSA]
+RewriteBase /
+RewriteCond %{HTTP_HOST} !www.cronweekly.com$ [NC]
+RewriteRule ^(.*)$ http://www.cronweekly.com/$1 [L,R=301] 
+RewriteCond %{HTTPS} off
+RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+<IfModule mod_headers.c>
+    <filesMatch "\.(ico|pdf|flv|jpg|jpeg|png|gif|js|swf|css)$">
+        Header set Cache-Control "max-age=1209600, public"
+    </filesMatch>
+</IfModule>
