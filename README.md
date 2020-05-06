@@ -71,6 +71,9 @@ To install XDebugger, use `php dry install:debugger xdebug`
 ## Continuous Intergration (ci):
 To install Jenkins use `php dry install:ci-jenkins`
 
+## Generating the site url
+To generate the site urls use `php dry generate:route`. This command will craw your controller to generate the site url
+
 ## Framework structure:
 There are 6 folders in the root file and they are
 *	App
