@@ -74,9 +74,9 @@ To install Jenkins use `php dry install:ci-jenkins`
 ## Framework structure:
 There are 6 folders in the root file and they are
 *	App
-	__	Controllers
-	__	Templates(view)
-	__	Model
+	_ _	Controllers
+	_ _	Templates(view)
+	_ _	Model
 *	Assets
 *	Config
 *	Db
@@ -84,7 +84,7 @@ There are 6 folders in the root file and they are
 *	Storage
 
 ### NB: More still to come on the project.
-__	Validating and sanitizing
-__	Adding more to the app folder like mail, notifications etc
-__	Request and response
-__	Middleware etc.
+_ _	Validating and sanitizing
+_ _	Adding more to the app folder like mail, notifications etc
+_ _	Request and response
+_ _	Middleware etc.
