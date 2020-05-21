@@ -59,4 +59,6 @@ $app->add(new InstallRedis());
 $app->add(new InstallGearman());
 $app->add(new InstallXdebug());
 $app->add(new InstallJenkins());
+$app->add(new CreateNotification());
+$app->add(new DestroyNotification());
 $app->run();
