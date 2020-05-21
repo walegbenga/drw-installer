@@ -36,6 +36,10 @@ I only tried them on windows 8.1 and it worked perfectly. Then how did I know or
 Like most of the frameworks, drw framework also comes with a scaffold. 
 ## What does that mean:
 It means you can easily start building with some infrastructures on ground for you (admin full functioning generated admin app).
+## Installing the framework
+To install the framework, copy-paste this code or type this `composer create-project drw-framework/drwinstaller`.
+If everything goes smoothly, this will install the application prerequisite.
+
 ### Generating a scaffold:
 To generate a scaffold, open `gitbash` and type `php dry generate:scaffold `(dry means Don’t Repeat Yourself)
 ### Creating a controller:
