@@ -27,6 +27,8 @@ use \Console\Command\{
 	Middleware\DestroyMiddleware,
 	Notification\CreateNotification,
 	Notification\DestroyNotification,
+	Queue\CreateQueue,
+	Queue\DestroyQueue,
 	Cache\InstallMemCache,
 	Cache\InstallVarnish,
 	Cache\InstallRedis,
@@ -61,4 +63,6 @@ $app->add(new InstallXdebug());
 $app->add(new InstallJenkins());
 $app->add(new CreateNotification());
 $app->add(new DestroyNotification());
+$app->add(new CreateQueue());
+$add->add(new DestroyQueue());
 $app->run();

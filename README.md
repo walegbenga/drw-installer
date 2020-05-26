@@ -37,7 +37,7 @@ Like most of the frameworks, drw framework also comes with a scaffold.
 ## What does that mean:
 It means you can easily start building with some infrastructures on ground for you (admin full functioning generated admin app).
 ## Installing the framework
-To install the framework, copy-paste this code or type this `composer create-project drw-framework/drwinstaller`.
+To install the framework, copy-paste this code or type this `composer create-project drw-framework/drwinstaller name-of-project`.
 If everything goes smoothly, this will install the application prerequisite.
 
 ### Generating a scaffold:
