@@ -1,76 +1,72 @@
 {
-    "name": "drw-framework/drw-framework",
-    "type": "project",
-    "description": "drw framework (Don't Re-invent the Wheel is a PHP framework that closely mimic the RoR framework)",
-    "authors": [
+  "name": "drw-framework/drw-framework",
+  "type": "project",
+  "description": "drw framework (Don't Re-invent the Wheel is a PHP framework that closely mimic the RoR framework)",
+  "authors": [
     {
-        "name": "Gbenga Ogunbule",
-        "email": "walegbenga807@gmail.com"
-    }],
-    "license": "MIT",
-    "homepage": "https://github.com/gbengawale/drw-framework",
-    "keywords": [
-        "web",
-        "application",
-        "framework",
-        "php",
-        "php7",
-        "php7.2"
-    ],
-    "autoload":
-    {
-        "psr-4":
-        {
-            "App\\": "app/"
-        },
-        "classmap": [
-            "db/seeds",
-            "db/factories"
-        ]
+      "name": "Gbenga Ogunbule",
+      "email": "walegbenga807@gmail.com"
+    }
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/gbengawale/drw-framework",
+  "keywords": [
+    "web",
+    "application",
+    "framework",
+    "php",
+    "php7",
+    "php7.2"
+  ],
+  "autoload": {
+    "psr-4": {
+      "App\\": "app/",
+      "Route\\": "route"
     },
-    "autoload-dev":
+    "classmap": [
+      "db/seeds",
+      "db/factories",
+      "app",
+      "route"
+    ]
+  },
+  "autoload-dev": {
+    "Tests\\": "tests/"
+  },
+  "require": {
+    "php": "^7.2",
+    "drw-framework/drw-framework": "^2.0.0",
+    "symfony/console": "^5.0",
+    "level-2/maphper": "v0.9.2.2",
+    "peterkahl/universal-php-mailer": "^4.5",
+    "matthiasmullie/scrapbook": "1.4.7"
+  },
+  "require-dev": {
+    "phing/phing": "2.*",
+    "brandonwamboldt/utilphp": "1.0.*",
+    "psy/psysh": "@stable",
+    "phpunit/phpunit": "^8.0"
+  },
+  "extra": {
+    "drw-framework": {
+      "dont-discover": []
+    }
+  },
+  "config": {
+    "optimize-autoloader": true,
+    "preferred-install": "dist",
+    "sort-packages": true
+  },
+  "prefer-stable": true,
+  "scripts": {
+    "post-root-package-install": [
+      "@php -r \"composer.phar require icosaedro.it/phplint;\""
+    ]
+  },
+  "repositories": [
     {
-        "Tests\\": "tests/"
-    },
-    "require":
-    {
-        "php": "^7.2",
-        "drw-framework/drw-framework": "^2.0.0",
-        "symfony/console": "^5.0",
-        "level-2/maphper": "v0.9.2.2",
-        "peterkahl/universal-php-mailer": "^4.5",
-        "matthiasmullie/scrapbook": "1.4.7"
-    },
-    "require-dev":
-    {
-        "phing/phing": "2.*",
-        "brandonwamboldt/utilphp": "1.0.*",
-        "psy/psysh": "@stable",
-        "phpunit/phpunit": "^8.0"
-    },
-    "extra":
-    {
-        "drw-framework":
-        {
-            "dont-discover": []
-        }
-    },
-    "config":
-    {
-        "optimize-autoloader": true,
-        "preferred-install": "dist",
-        "sort-packages": true
-    },
-    "prefer-stable": true,
-    "scripts":
-    {
-        "post-root-package-install": [
-            "@php -r \"composer.phar require icosaedro.it/phplint;\""
-        ]
-    },
-    "repositories": [
-    {
-        "type": "composer",
-        "url": "https://www.icosaedro.it/phplint"
-    }]
+      "type": "composer",
+      "url": "https://www.icosaedro.it/phplint"
+    }
+  ]
 }
