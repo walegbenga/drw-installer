@@ -1,49 +1,95 @@
 # How to use the drw-framework
+
 ## The full meaning of drw is Don’t Reinvent the Wheel
+
 # Requirements:
-*	PHP7.2
-*	Gitbash
-*	Curl(Windows users, should come with gitbash, if not install)
+
+- PHP7.2
+- Gitbash
+- Curl(Windows users, should come with gitbash, if not install)
 
 ## Packages (that come with drw or you can install from cli):
-### Asterisks packages are preinstall packages 
-*	PHPUnit*
-*	Marpher*
-*	Peterkahl/universal-php-mailer*
-*	Matthiasmullie/scrapbook*
-*	Phing*
-*	Brandonwambolt/utilphp*
-*	Psy/psysh*
-*	Phplint*
-*	Xdebug
-*	Jenkins
-*	Gearman
-*	Redis
-*	Varnish
-*	Memcached
+
+### Asterisks packages are preinstall packages
+
+- PHPUnit\*
+- Marpher\*
+- Peterkahl/universal-php-mailer\*
+- Matthiasmullie/scrapbook\*
+- Phing\*
+- Brandonwambolt/utilphp\*
+- Psy/psysh\*
+- Phplint\*
+- Xdebug
+- Jenkins
+- Gearman
+- Redis
+- Varnish
+- Memcached
 
 ## What set the framework apart:
+
 With this framework, you can install memcached, redis, varnish, xdebug, phpsh, Jenkins, gearman etc with just a command.
+
 ## Supported OS:
+
 This framework does not support all OS available in the world for the installation of the packages mentioned above(I don’t think it is possible to see a program that will support every OSs in the world) but it does have support for some major OSs.
 
 The supported OSs are Windows, mac OS, Linux ->Ubuntu, Debian, fedora, redhat, centOS, Open BSD, free BSD.
+
 ### What does that mean?
-It means  to install memcached  for example, if you are any of the above OS user, all what you need to do is run `php dry install:cache-memcache` and the magic begins as the framework will detect the kind of OS you are using and if it is part of the supported OSs, it will download memcached for php, extract it to php/ext folder, install it, update php.ini file,  download memcached, extract it(if necessary), install it and start it.
+
+It means to install memcached for example, if you are any of the above OS user, all what you need to do is run `php dry install:cache-memcache` and the magic begins as the framework will detect the kind of OS you are using and if it is part of the supported OSs, it will download memcached for php, extract it to php/ext folder, install it, update php.ini file, download memcached, extract it(if necessary), install it and start it.
+
 ### Note:
-I only tried them on windows 8.1 and it worked perfectly. Then how did I know or write the code for others(Linux, mac OS etc)? Well, I followed either the package protocol of installation on each specific platform or follow the platform protocol of installing packages e.g. on Open BSD, I mostly use pkg_add and the package name. 
+
+I only tried them on windows 8.1 and it worked perfectly. Then how did I know or write the code for others(Linux, mac OS etc)? Well, I followed either the package protocol of installation on each specific platform or follow the platform protocol of installing packages e.g. on Open BSD, I mostly use pkg_add and the package name.
+
 ## Usage:
-Like most of the frameworks, drw framework also comes with a scaffold. 
+
+Like most of the frameworks, drw framework also comes with a scaffold.
+
 ## What does that mean:
+
 It means you can easily start building with some infrastructures on ground for you (admin full functioning generated admin app).
+
 ## Installing the framework
+
 To install the framework, copy-paste this code or type this `composer create-project drw-framework/drwinstaller name-of-project`.
 If everything goes smoothly, this will install the application prerequisite.
 
 ### Generating a scaffold:
-To generate a scaffold, open `gitbash` and type `php dry generate:scaffold `(dry means Don’t Repeat Yourself)
+
+To generate a scaffold, open `gitbash` and type `php dry generate:scaffold`(dry means Don’t Repeat Yourself)
+
 ### Creating a controller:
+
 To create a controller, type `php dry create:controller`
+
+#### Validating form submision in in a controller
+
+When a form is submitted from the template(view), it will pass through the Controller. So, to validate, filter and sanitze a form,
+you will do that in the controller.
+To do that, you have to use the validation class inside the controller like this
+`use \Generic\Validation\{Validation, Rule}`
+Then instantiate the class
+`$validator = new Validator();`
+You can then use it like this
+
+````
+$validator
+	->set_label('name', 'first name')
+	->add_filter('name', 'trim')
+	->add_rule('name', new Rule\MinLength(5))
+
+	if($validator->is_valid($_POST)) {
+		print_r($validator->get_data());
+	} else {
+		print_r($validator->get_errors());
+	}
+	```
+	More examples will be release in batches
+
 ### Creating an api controller:
 Type `php dry create:api`
 ### Creating a controller with parameter:
@@ -96,6 +142,7 @@ There are 6 folders in the root file and they are
 *	Config
 *	Db
 *	Public
+* Route
 *	Storage
 
 ### NB: More still to come on the project.
@@ -103,3 +150,4 @@ There are 6 folders in the root file and they are
 * Adding more to the app folder like mail, notifications etc
 * Request and response
 * Middleware etc.
+````
