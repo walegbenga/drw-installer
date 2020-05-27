@@ -129,7 +129,48 @@ To install Jenkins use `php dry install:ci-jenkins`
 To generate the site urls use `php dry generate:route`. This command will craw your controller to generate the site url
 
 ## Working with other packages that comes with the framework
+### Validating form submision in a controller
 
+When a form is submitted from the template(view), it will pass through the Controller. So, to validate, filter and sanitze a form,
+you will do that in the controller.
+To do that, you have to use the validation class inside the controller like this
+`use \Generic\Validation\{Validation, Rule}`
+Then instantiate the class
+`$validator = new Validator();`
+You can then use it like this
+
+``
+$validator
+->set_label('name', 'first name')
+->add_filter('name', 'trim')
+->add_rule('name', new Rule\MinLength(5))
+
+if($validator->is_valid($_POST)) {
+  	print_r($validator->get_data());
+  } else {
+  	print_r($validator->get_errors());
+  }
+``
+More examples will be release in batches
+
+### Working with image
+To work with imaging, you should use the ImageHandling class
+`use \Generic\Image\ImageHandling`
+To upload image or other files,use the `uploadFile` function and it it accepts three(3) arguments, the first parameter is the
+name of the file, the second parameter is the file type and the 3rd parameter maximum length
+```
+new imageHandling =  new ImageHandling();
+$imageHandling->uploadFile($name, $filetype, $maxlen);
+```
+**Resizing an image**
+To resize an image, use the `imageResize` function like this
+$imageHandling->imageResize($image, $width, $height);
+
+**Generating a thumbnail**
+To generate a thumbnail, use the `makeThumbnail` function
+$this->imageHandling->makeThumbnail($max);
+
+More examples will be added much later as there are nine(9) different functions for working with images in the ImageHandling class
 ## Framework structure:
 
 There are 6 folders in the root file and they are
