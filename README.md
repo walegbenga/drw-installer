@@ -170,7 +170,21 @@ $imageHandling->imageResize($image, $width, $height);
 To generate a thumbnail, use the `makeThumbnail` function
 $this->imageHandling->makeThumbnail($max);
 
-More examples will be added much later as there are nine(9) different functions for working with images in the ImageHandling class
+More examples will be added much later as there are nine(9) different functions for working with images in the ImageHandling class.
+Also, there is an image sliding class as well named ImageSlide
+
+### Working with Encryption and Descryption
+The framework also come with encryption and a decryption function
+`use \Generic\Encrypt`
+To encrypt use the `encrypt()` function and to `decrypt` use the `decrypt()` function
+```
+$encrypt = new Encrypt(); 
+$encode = $encrypt->encrypt($text);
+```
+and to decrypt, use
+```
+$decode = $encrypt->decrypt($encode);
+```
 ## Framework structure:
 
 There are 6 folders in the root file and they are
