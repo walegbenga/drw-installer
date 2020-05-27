@@ -66,88 +66,97 @@ To generate a scaffold, open `gitbash` and type `php dry generate:scaffold`(dry 
 
 To create a controller, type `php dry create:controller`
 
-#### Validating form submision in in a controller
-
-When a form is submitted from the template(view), it will pass through the Controller. So, to validate, filter and sanitze a form,
-you will do that in the controller.
-To do that, you have to use the validation class inside the controller like this
-`use \Generic\Validation\{Validation, Rule}`
-Then instantiate the class
-`$validator = new Validator();`
-You can then use it like this
-
-````
-$validator
-	->set_label('name', 'first name')
-	->add_filter('name', 'trim')
-	->add_rule('name', new Rule\MinLength(5))
-
-	if($validator->is_valid($_POST)) {
-		print_r($validator->get_data());
-	} else {
-		print_r($validator->get_errors());
-	}
-	```
-	More examples will be release in batches
-
 ### Creating an api controller:
+
 Type `php dry create:api`
+
 ### Creating a controller with parameter:
+
 As of now, the only supported parameter is the `--api` that will be used to generate the api with the same name
+
 ### Creating a model:
+
 You can only generate a model class (as at now) through the `db` command
+
 ### Creating a db table:
-Type `php dry create:table  tablename(assuming you have created a db) column`(for the column use spaces to separate the field)
+
+Type `php dry create:table tablename(assuming you have created a db) column`(for the column use spaces to separate the field)
 e.g. `php dry create:table apple “name s: (50) nn:” “type string: (100) nn:”`.
 The above command will create a table named apple, with the following columns, `name varchar(50) not null,`
 `Type varchar(100) not null`. `id int(11) auto_increment primary key` will be automatically generated
 A model class named Apple will be generated (noticed that the “a” is now capitalized) with the properties of each table column i.e. inside the Apple class, you will have 3 properties created for you, namely `public $id;, public $name; and public $type;`
+
 ### Creating a controller with the same name as db table and model:
-Type php dry create:table tablename  column –controller
+
+Type php dry create:table tablename column –controller
+
 ### Creating a db:
+
 Type `php dry create:db database name`
 The `create:db` also come with 2 parameters and they are the `--user` and `--pw` used for creating a user and password. If not provided, a default one will be created with value of `secret` for both options
 Reversing the command:
 E.g. delete a db use, `php dry destroy:db dbname`.
 All the above command have their respective destroy command.
+
 ### Generating an admin table
-You can generate an admin table with this command `php dry create:admin column names(if any)`. If no columns are provided, drw will generate one for you and the field generated for you will be `first_name`, `last_name` `email`, `password` and `username`  with the values of first_name = Willy, last_name = keysers, email = stephenogunbule@drw.com, username = robbert_bassham and password = secret.
+
+You can generate an admin table with this command `php dry create:admin column names(if any)`. If no columns are provided, drw will generate one for you and the field generated for you will be `first_name`, `last_name` `email`, `password` and `username` with the values of first_name = Willy, last_name = keysers, email = stephenogunbule@drw.com, username = robbert_bassham and password = secret.
+
 ### Side note:
+
 The above named use for the admin i.e the values of first_name, last_name, email and password are the names of my mentors. first_name and last_name(WIlly Keysers) was the name of a Belgian man who died(if I could recall, around 7years ago). During this period, He had a great influence in my life despite not seeing him in person.
 The email address name was my father's names when he was on earth(He died in 2006).
 The username is the name of an American programmer that I met online(sitepoint). He had (and still has) a great influence in my formative years as a programmer(till now).
+
 ## Installing Packages:
+
 This are the packages you can install from the command line using drw framework. XDebug, Jenkins, Memcached, Redis, Gearman, Varnish.
 
 ## Cache:
+
 To install memchached, Redis or Varnish, use php dry install:cache-package name e.g. `php dry install:cache-redis` to install redis
+
 ## Debugger:
+
 To install XDebugger, use `php dry install:debugger xdebug`
+
 ## Continuous Intergration (ci):
+
 To install Jenkins use `php dry install:ci-jenkins`
 
 ## Generating the site url
+
 To generate the site urls use `php dry generate:route`. This command will craw your controller to generate the site url
 
+## Working with other packages that comes with the framework
+
 ## Framework structure:
+
 There are 6 folders in the root file and they are
-*	App
-	* Controllers
-	* Templates(view)
-	* Model
-	* Mail
-	* Notification
-	* Job(Queue)
-*	Assets
-*	Config
-*	Db
-*	Public
-* Route
-*	Storage
+
+- App
+  - Controllers
+  - Templates(view)
+  - Model
+  - Mail
+  - Notification
+  - Job(Queue)
+- Assets
+- Config
+- Db
+- Public
+- Route
+- Storage
 
 ### NB: More still to come on the project.
-* Validating and sanitizing
-* Adding more to the app folder like mail, notifications etc
-* Request and response
-* Middleware etc.
+
+- Validating and sanitizing
+- Adding more to the app folder like mail, notifications etc
+- Request and response
+- Middleware etc.
+
 ````
+
+```
+
+```
