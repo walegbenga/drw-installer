@@ -27,9 +27,9 @@ With this framework, you can install memcached, redis, varnish, xdebug, phpsh, J
 ## Supported OS:
 This framework does not support all OS available in the world for the installation of the packages mentioned above(I don’t think it is possible to see a program that will support every OSs in the world) but it does have support for some major OSs.
 
-The supported Oss are Windows, mac OS, Linux ->Ubuntu, Debian, fedora, redhat, centOS, Open BSD, free BSD.
+The supported OSs are Windows, mac OS, Linux ->Ubuntu, Debian, fedora, redhat, centOS, Open BSD, free BSD.
 ### What does that mean?
-It means  to install memcached  for example, if you are any of the above OS user, all what you need to do is run `php dry install:cache-memcache` and the magic begins as the framework will detect the kind of OS you are using and if it is part of the supported Oss, it will download memcached for php, extract it to php/ext folder, install it, update php.ini file,  download memcached, extract it(if necessary), install it and start it.
+It means  to install memcached  for example, if you are any of the above OS user, all what you need to do is run `php dry install:cache-memcache` and the magic begins as the framework will detect the kind of OS you are using and if it is part of the supported OSs, it will download memcached for php, extract it to php/ext folder, install it, update php.ini file,  download memcached, extract it(if necessary), install it and start it.
 ### Note:
 I only tried them on windows 8.1 and it worked perfectly. Then how did I know or write the code for others(Linux, mac OS etc)? Well, I followed either the package protocol of installation on each specific platform or follow the platform protocol of installing packages e.g. on Open BSD, I mostly use pkg_add and the package name. 
 ## Usage:
@@ -65,11 +65,11 @@ Reversing the command:
 E.g. delete a db use, `php dry destroy:db dbname`.
 All the above command have their respective destroy command.
 ### Generating an admin table
-You can generate an admin table with this command `php dry create:admin column names(if any)`. If no columns are provided, drw will generate one for you and the field generated for you will be `first_name`, `last_name` `email`, `password` and `username`  with the values of first_name = Willy, last_name = keysers, email = stephenogunbule@drw.com, password = robbert_bassham.
+You can generate an admin table with this command `php dry create:admin column names(if any)`. If no columns are provided, drw will generate one for you and the field generated for you will be `first_name`, `last_name` `email`, `password` and `username`  with the values of first_name = Willy, last_name = keysers, email = stephenogunbule@drw.com, username = robbert_bassham and password = secret.
 ### Side note:
 The above named use for the admin i.e the values of first_name, last_name, email and password are the names of my mentors. first_name and last_name(WIlly Keysers) was the name of a Belgian man who died(if I could recall, around 7years ago). During this period, He had a great influence in my life despite not seeing him in person.
 The email address name was my father's names when he was on earth(He died in 2006).
-The password is the name of an American programmer that I met online(sitepoint). He had (and still has) a great influence in my formative years as a programmer(till now).
+The username is the name of an American programmer that I met online(sitepoint). He had (and still has) a great influence in my formative years as a programmer(till now).
 ## Installing Packages:
 This are the packages you can install from the command line using drw framework. XDebug, Jenkins, Memcached, Redis, Gearman, Varnish.
 
@@ -89,6 +89,9 @@ There are 6 folders in the root file and they are
 	* Controllers
 	* Templates(view)
 	* Model
+	* Mail
+	* Notification
+	* Job(Queue)
 *	Assets
 *	Config
 *	Db
